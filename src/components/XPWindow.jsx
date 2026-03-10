@@ -2,6 +2,9 @@ import { ReactNode, useState } from "react";
 
 export function XPWindow({ title, children, className = "" }) {
   const [showContent, setShowContent] = useState(true);
+  const toggleShowContent = () => {
+    setShowContent(!showContent);
+  };
 
   return (
     <div
@@ -20,19 +23,19 @@ export function XPWindow({ title, children, className = "" }) {
         <div className="flex gap-1.5">
           <button
             className="w-6 h-6 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center justify-center text-white text-xs font-bold rounded-sm border border-white/20"
-            onClick={setShowContent(false)}
+            onClick={toggleShowContent}
           >
             <span className="mb-1">_</span>
           </button>
           <button
             className="w-6 h-6 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center justify-center text-white text-xs font-bold rounded-sm border border-white/20"
-            onClick={setShowContent(true)}
+            onClick={toggleShowContent}
           >
             □
           </button>
           <button
             className="w-6 h-6 bg-white/10 hover:bg-red-500 transition-all flex items-center justify-center text-white text-xs font-bold rounded-sm border border-white/20"
-            onClick={setShowContent(false)}
+            onClick={toggleShowContent}
           >
             ×
           </button>
@@ -43,9 +46,11 @@ export function XPWindow({ title, children, className = "" }) {
       <div className="h-px bg-gradient-to-r from-transparent via-[#ff8833]/50 to-transparent"></div>
 
       {/* Content */}
-      <div className="flex-1 bg-gradient-to-br from-[#0d0d0d] to-[#1a1a1a] text-white overflow-auto">
-        {children}
-      </div>
+      {showContent && (
+        <div className="flex-1 bg-gradient-to-br from-[#0d0d0d] to-[#1a1a1a] text-white overflow-auto">
+          {children}
+        </div>
+      )}
 
       {/* Bottom border */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#333]/30 to-transparent"></div>
