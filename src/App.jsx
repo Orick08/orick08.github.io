@@ -7,18 +7,17 @@ export default function App() {
 
   const menuItems = [
     { id: "inicio", label: "Inicio", icon: Home },
-    { id: "sobre-mi", label: "Sobre mí", icon: User },
     { id: "social-media", label: "Social Media", icon: Share2 },
     { id: "blog", label: "Blog", icon: BookOpen },
     { id: "portafolio", label: "Portafolio", icon: Briefcase },
   ];
 
   return (
-    <div className="min-h-screen bg-[#000000] p-8 flex gap-6 overflow-auto">
+    <div className="min-h-screen bg-[#000000] p-3 lg:p-8 flex flex-col lg:flex-row gap-6 overflow-auto">
       {/* Menu Window - Left Side */}
-      <XPWindow title="Menu" className="w-72 h-fit flex-shrink-0">
-        <div className="p-5">
-          <nav className="flex flex-col gap-2.5">
+      <XPWindow title="Menu" className="h-fit flex-1">
+        <div className="p-4">
+          <nav className="flex flex-row lg:flex-col gap-3">
             {menuItems.map((item) => {
               const Icon = item.icon;
               return (
@@ -32,7 +31,7 @@ export default function App() {
                   }`}
                 >
                   <Icon size={18} strokeWidth={2.5} />
-                  <span className="font-semibold tracking-wide">
+                  <span className="font-semibold tracking-wide hidden lg:inline">
                     {item.label}
                   </span>
                 </button>
@@ -45,7 +44,7 @@ export default function App() {
             <div className="flex items-center gap-2 opacity-40">
               <div className="w-2 h-2 bg-[#ff6600] rounded-full animate-pulse"></div>
               <span className="text-[#666] text-xs font-semibold tracking-wider">
-                ZUNE THEME
+                Made with love (and react unfortunally)
               </span>
             </div>
           </div>
@@ -57,9 +56,9 @@ export default function App() {
         title={
           menuItems.find((item) => item.id === activeSection)?.label || "Inicio"
         }
-        className="flex-1 min-h-[600px]"
+        className="flex-1 lg:flex-4 min-h-[600px]"
       >
-        <div className="p-8">
+        <div className="p-4 lg:p-8">
           {activeSection === "inicio" && (
             <div className="space-y-6">
               <div className="border-l-4 border-[#ff6600] pl-4 mb-6">
@@ -71,7 +70,7 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#2a2a2a] rounded-sm p-6 space-y-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+              <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#2a2a2a] rounded-sm p-3 space-y-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                 <p className="text-gray-300 leading-relaxed">
                   Este es un sitio web personal con un diseño nostálgico
                   inspirado en el tema Zune de Windows XP. Utiliza el menú de la
