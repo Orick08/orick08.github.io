@@ -2,7 +2,6 @@ import { useState } from "react";
 import { XPWindow } from "@/components/XPWindow";
 import { User, Home, Share2, BookOpen, Briefcase } from "lucide-react";
 
-
 export default function App() {
   const [activeSection, setActiveSection] = useState("inicio");
 
@@ -33,24 +32,33 @@ export default function App() {
                   }`}
                 >
                   <Icon size={18} strokeWidth={2.5} />
-                  <span className="font-semibold tracking-wide">{item.label}</span>
+                  <span className="font-semibold tracking-wide">
+                    {item.label}
+                  </span>
                 </button>
               );
             })}
           </nav>
-          
+
           {/* Zune branding accent */}
           <div className="mt-6 pt-4 border-t border-[#333]">
             <div className="flex items-center gap-2 opacity-40">
               <div className="w-2 h-2 bg-[#ff6600] rounded-full animate-pulse"></div>
-              <span className="text-[#666] text-xs font-semibold tracking-wider">ZUNE THEME</span>
+              <span className="text-[#666] text-xs font-semibold tracking-wider">
+                ZUNE THEME
+              </span>
             </div>
           </div>
         </div>
       </XPWindow>
 
       {/* Content Window - Right Side */}
-      <XPWindow title={menuItems.find(item => item.id === activeSection)?.label || "Inicio"} className="flex-1 min-h-[600px]">
+      <XPWindow
+        title={
+          menuItems.find((item) => item.id === activeSection)?.label || "Inicio"
+        }
+        className="flex-1 min-h-[600px]"
+      >
         <div className="p-8">
           {activeSection === "inicio" && (
             <div className="space-y-6">
@@ -62,26 +70,35 @@ export default function App() {
                   Tema Zune • Windows XP Edition
                 </p>
               </div>
-              
+
               <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#2a2a2a] rounded-sm p-6 space-y-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                 <p className="text-gray-300 leading-relaxed">
-                  Este es un sitio web personal con un diseño nostálgico inspirado en el tema Zune de Windows XP.
-                  Utiliza el menú de la izquierda para navegar por las diferentes secciones.
+                  Este es un sitio web personal con un diseño nostálgico
+                  inspirado en el tema Zune de Windows XP. Utiliza el menú de la
+                  izquierda para navegar por las diferentes secciones.
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <div className="bg-[#0d0d0d] border border-[#333] hover:border-[#ff6600] rounded-sm p-5 transition-all group">
                     <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-[#ff6600] to-[#ff7a1a] flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,102,0,0.3)]">
                       <span className="text-white text-xl">🎨</span>
                     </div>
-                    <h3 className="text-white font-bold mb-2 group-hover:text-[#ff8833] transition-colors">Diseño Retro</h3>
-                    <p className="text-gray-500 text-sm">Inspirado en la estética del tema Zune</p>
+                    <h3 className="text-white font-bold mb-2 group-hover:text-[#ff8833] transition-colors">
+                      Diseño Retro
+                    </h3>
+                    <p className="text-gray-500 text-sm">
+                      Inspirado en la estética del tema Zune
+                    </p>
                   </div>
                   <div className="bg-[#0d0d0d] border border-[#333] hover:border-[#ff6600] rounded-sm p-5 transition-all group">
                     <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-[#ff6600] to-[#ff7a1a] flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,102,0,0.3)]">
                       <span className="text-white text-xl">🎯</span>
                     </div>
-                    <h3 className="text-white font-bold mb-2 group-hover:text-[#ff8833] transition-colors">Tema Personalizado</h3>
-                    <p className="text-gray-500 text-sm">Colores negro y naranja para un look único</p>
+                    <h3 className="text-white font-bold mb-2 group-hover:text-[#ff8833] transition-colors">
+                      Tema Personalizado
+                    </h3>
+                    <p className="text-gray-500 text-sm">
+                      Colores negro y naranja para un look único
+                    </p>
                   </div>
                 </div>
               </div>
@@ -92,26 +109,43 @@ export default function App() {
             <div className="space-y-6">
               <div className="border-l-4 border-[#ff6600] pl-4 mb-6">
                 <h2 className="text-3xl font-bold text-white mb-2">Sobre mí</h2>
-                <p className="text-gray-500">Conoce más sobre mi experiencia y habilidades</p>
+                <p className="text-gray-500">
+                  Conoce más sobre mi experiencia y habilidades
+                </p>
               </div>
-              
+
               <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#2a2a2a] rounded-sm p-6 space-y-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-[#ff8833] font-bold text-xl mb-2">Perfil</h3>
+                    <h3 className="text-[#ff8833] font-bold text-xl mb-2">
+                      Perfil
+                    </h3>
                     <p className="text-gray-300 leading-relaxed">
-                      Desarrollador apasionado por crear experiencias web únicas y memorables.
-                      Me especializo en desarrollo frontend con React y diseño de interfaces.
+                      Desarrollador apasionado por crear experiencias web únicas
+                      y memorables. Me especializo en desarrollo frontend con
+                      React y diseño de interfaces.
                     </p>
                   </div>
-                  
+
                   <div className="pt-4 border-t border-[#2a2a2a]">
-                    <h3 className="text-[#ff8833] font-bold text-xl mb-3">Habilidades</h3>
+                    <h3 className="text-[#ff8833] font-bold text-xl mb-3">
+                      Habilidades
+                    </h3>
                     <div className="grid grid-cols-2 gap-3">
-                      {["React", "TypeScript", "Tailwind CSS", "UI/UX Design"].map((skill) => (
-                        <div key={skill} className="flex items-center gap-3 bg-[#0d0d0d] border border-[#333] px-4 py-2.5 rounded-sm">
+                      {[
+                        "React",
+                        "TypeScript",
+                        "Tailwind CSS",
+                        "UI/UX Design",
+                      ].map((skill) => (
+                        <div
+                          key={skill}
+                          className="flex items-center gap-3 bg-[#0d0d0d] border border-[#333] px-4 py-2.5 rounded-sm"
+                        >
                           <div className="w-2 h-2 bg-[#ff6600] rounded-full shadow-[0_0_8px_rgba(255,102,0,0.6)]"></div>
-                          <span className="text-gray-300 font-medium">{skill}</span>
+                          <span className="text-gray-300 font-medium">
+                            {skill}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -124,15 +158,31 @@ export default function App() {
           {activeSection === "social-media" && (
             <div className="space-y-6">
               <div className="border-l-4 border-[#ff6600] pl-4 mb-6">
-                <h2 className="text-3xl font-bold text-white mb-2">Social Media</h2>
-                <p className="text-gray-500">Conecta conmigo en redes sociales</p>
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  Social Media
+                </h2>
+                <p className="text-gray-500">
+                  Conecta conmigo en redes sociales
+                </p>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { name: "Twitter / X", handle: "@tunombre", color: "#ff6600" },
-                  { name: "GitHub", handle: "github.com/tunombre", color: "#ff8833" },
-                  { name: "LinkedIn", handle: "linkedin.com/in/tunombre", color: "#ff6600" },
+                  {
+                    name: "Twitter / X",
+                    handle: "@tunombre",
+                    color: "#ff6600",
+                  },
+                  {
+                    name: "GitHub",
+                    handle: "github.com/tunombre",
+                    color: "#ff8833",
+                  },
+                  {
+                    name: "LinkedIn",
+                    handle: "linkedin.com/in/tunombre",
+                    color: "#ff6600",
+                  },
                   { name: "Instagram", handle: "@tunombre", color: "#ff8833" },
                 ].map((social) => (
                   <div
@@ -155,23 +205,26 @@ export default function App() {
                 <h2 className="text-3xl font-bold text-white mb-2">Blog</h2>
                 <p className="text-gray-500">Artículos y reflexiones</p>
               </div>
-              
+
               <div className="space-y-4">
                 {[
                   {
                     title: "Mi experiencia con Windows XP",
                     date: "15 de Enero, 2026",
-                    excerpt: "Un viaje nostálgico por uno de los sistemas operativos más icónicos...",
+                    excerpt:
+                      "Un viaje nostálgico por uno de los sistemas operativos más icónicos...",
                   },
                   {
                     title: "Diseño retro en la web moderna",
                     date: "10 de Enero, 2026",
-                    excerpt: "Cómo combinar la estética clásica con tecnologías actuales...",
+                    excerpt:
+                      "Cómo combinar la estética clásica con tecnologías actuales...",
                   },
                   {
                     title: "El poder de React y TypeScript",
                     date: "5 de Enero, 2026",
-                    excerpt: "Construyendo aplicaciones web robustas y escalables...",
+                    excerpt:
+                      "Construyendo aplicaciones web robustas y escalables...",
                   },
                 ].map((post) => (
                   <div
@@ -182,7 +235,9 @@ export default function App() {
                       {post.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-3">{post.date}</p>
-                    <p className="text-gray-400 leading-relaxed">{post.excerpt}</p>
+                    <p className="text-gray-400 leading-relaxed">
+                      {post.excerpt}
+                    </p>
                     <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff7a1a] hover:from-[#ff7a1a] hover:to-[#ff6600] text-white text-sm font-bold rounded-sm transition-all shadow-[0_0_15px_rgba(255,102,0,0.2)]">
                       Leer más →
                     </button>
@@ -195,20 +250,24 @@ export default function App() {
           {activeSection === "portafolio" && (
             <div className="space-y-6">
               <div className="border-l-4 border-[#ff6600] pl-4 mb-6">
-                <h2 className="text-3xl font-bold text-white mb-2">Portafolio</h2>
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  Portafolio
+                </h2>
                 <p className="text-gray-500">Mis proyectos destacados</p>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
                   {
                     name: "Proyecto XP Theme",
-                    description: "Sitio web con diseño retro inspirado en Windows XP",
+                    description:
+                      "Sitio web con diseño retro inspirado en Windows XP",
                     tech: ["React", "Tailwind", "TypeScript"],
                   },
                   {
                     name: "Dashboard Moderno",
-                    description: "Panel de control con visualizaciones de datos",
+                    description:
+                      "Panel de control con visualizaciones de datos",
                     tech: ["React", "Charts", "API"],
                   },
                   {
@@ -228,11 +287,17 @@ export default function App() {
                   >
                     <div className="h-40 bg-gradient-to-br from-[#ff6600] via-[#ff7a1a] to-[#e65c00] flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-black/20"></div>
-                      <span className="text-white font-bold text-lg relative z-10 drop-shadow-lg">{project.name}</span>
+                      <span className="text-white font-bold text-lg relative z-10 drop-shadow-lg">
+                        {project.name}
+                      </span>
                     </div>
                     <div className="p-5">
-                      <h3 className="text-white font-bold text-lg mb-2">{project.name}</h3>
-                      <p className="text-gray-500 text-sm mb-4">{project.description}</p>
+                      <h3 className="text-white font-bold text-lg mb-2">
+                        {project.name}
+                      </h3>
+                      <p className="text-gray-500 text-sm mb-4">
+                        {project.description}
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech) => (
                           <span
