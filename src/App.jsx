@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { XPWindow } from "@/components/XPWindow";
 import { User, Home, Share2, BookOpen, Briefcase } from "lucide-react";
+import { Routes, Route, Link } from "react-router-dom";
+import Index from "./pages/index";
+import Porfolio from "./pages/portfolio";
+import Social from "./pages/social";
+import About from "./pages/about";
+import Blog from "./pages/blog";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("inicio");
 
   const menuItems = [
-    { id: "inicio", label: "Inicio", icon: Home },
-    { id: "blog", label: "Blog", icon: BookOpen },
-    { id: "portafolio", label: "Portafolio", icon: Briefcase },
-    { id: "social-media", label: "Social Media", icon: Share2 },
-    { id: "about-me", label: "About Me", icon: User },
+    { id: "/", label: "Home", icon: Home },
+    { id: "/blog", label: "Blog", icon: BookOpen },
+    { id: "/portfolio", label: "Portfolio", icon: Briefcase },
+    { id: "/social", label: "Social Media", icon: Share2 },
+    { id: "/about-me", label: "About Me", icon: User },
   ];
 
   return (
@@ -23,8 +29,9 @@ export default function App() {
             {menuItems.map((item) => {
               const Icon = item.icon;
               return (
-                <button
+                <Link
                   key={item.id}
+                  to={item.id}
                   onClick={() => setActiveSection(item.id)}
                   className={`flex items-center gap-3 px-5 py-3.5 rounded-sm transition-all duration-150 ${
                     activeSection === item.id
@@ -36,7 +43,7 @@ export default function App() {
                   <span className="font-semibold tracking-wide hidden lg:inline">
                     {item.label}
                   </span>
-                </button>
+                </Link>
               );
             })}
           </nav>
@@ -46,7 +53,7 @@ export default function App() {
             <div className="flex items-center gap-2 opacity-40">
               <div className="w-2 h-2 bg-[#ff6600] rounded-full animate-pulse"></div>
               <span className="text-[#666] text-xs font-semibold tracking-wider">
-                Made with love (and react unfortunally)
+                Made with react, 2026.
               </span>
             </div>
           </div>
@@ -61,15 +68,13 @@ export default function App() {
         className="flex-1 lg:flex-4 min-h-[600px]"
       >
         <div className="p-4 lg:p-8">
-          {activeSection === "inicio" && "TBD"}
-
-          {activeSection === "blog" && "TBD"}
-
-          {activeSection === "portafolio" && "TBD"}
-
-          {activeSection === "social-media" && "TBD"}
-
-          {activeSection === "about-me" && "TBD"}
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/portfolio" element={<Porfolio />} />
+            <Route path="/social" element={<Social />} />
+            <Route path="/about-me" element={<About />} />
+          </Routes>
         </div>
       </XPWindow>
     </div>
