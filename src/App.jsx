@@ -26,7 +26,7 @@ export default function App() {
     <div className="min-h-screen bg-[#000000] p-3 lg:p-8 flex flex-col lg:flex-row gap-6 overflow-auto">
       {/* Menu Window - Left Side */}
       {/* TODO: make this max width 200px */}
-      <XPWindow title="Menu" className="h-fit flex-1">
+      <XPWindow title="Menu" className="h-fit lg:flex-1">
         <div className="p-4">
           <nav className="flex flex-row lg:flex-col gap-3">
             {menuItems.map((item) => {
