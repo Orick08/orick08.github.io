@@ -1,4 +1,17 @@
 export default function Social() {
+  const socialList = [
+    {
+      name: "Twitter",
+      handle: "@Orick08",
+      color: "#ff6600",
+    },
+    {
+      name: "GitHub",
+      handle: "github.com/Orick08",
+      color: "#ff8833",
+    },
+  ];
+
   return (
     <div className="space-y-6">
       <div className="border-l-4 border-[#ff6600] pl-4 mb-6">
@@ -7,24 +20,7 @@ export default function Social() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {[
-          {
-            name: "Twitter / X",
-            handle: "@tunombre",
-            color: "#ff6600",
-          },
-          {
-            name: "GitHub",
-            handle: "github.com/tunombre",
-            color: "#ff8833",
-          },
-          {
-            name: "LinkedIn",
-            handle: "linkedin.com/in/tunombre",
-            color: "#ff6600",
-          },
-          { name: "Instagram", handle: "@tunombre", color: "#ff8833" },
-        ].map((social) => (
+        {socialList.map((social) => (
           <div
             key={social.name}
             className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#2a2a2a] hover:border-[#ff6600] rounded-sm p-5 transition-all cursor-pointer group shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"

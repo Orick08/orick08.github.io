@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { XPWindow } from "@/components/XPWindow";
 import { User, Home, Share2, BookOpen, Briefcase } from "lucide-react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Index from "./pages/index";
 import Porfolio from "./pages/portfolio";
 import Social from "./pages/social";
@@ -9,7 +9,7 @@ import About from "./pages/about";
 import Blog from "./pages/blog";
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState("inicio");
+  const location = useLocation();
 
   const menuItems = [
     { id: "/", label: "Home", icon: Home },
@@ -18,6 +18,9 @@ export default function App() {
     { id: "/social", label: "Social Media", icon: Share2 },
     { id: "/about-me", label: "About Me", icon: User },
   ];
+
+  const currentItem = menuItems.find((item) => item.id === location.pathname);
+  const currentTitle = currentItem ? currentItem.label : "Home";
 
   return (
     <div className="min-h-screen bg-[#000000] p-3 lg:p-8 flex flex-col lg:flex-row gap-6 overflow-auto">
@@ -28,13 +31,14 @@ export default function App() {
           <nav className="flex flex-row lg:flex-col gap-3">
             {menuItems.map((item) => {
               const Icon = item.icon;
+              const isActive = location.pathname === item.id;
               return (
                 <Link
                   key={item.id}
                   to={item.id}
                   onClick={() => setActiveSection(item.id)}
                   className={`flex items-center gap-3 px-5 py-3.5 rounded-sm transition-all duration-150 ${
-                    activeSection === item.id
+                    isActive
                       ? "bg-gradient-to-r from-[#ff6600] to-[#ff7a1a] text-white shadow-[0_0_20px_rgba(255,102,0,0.4)]"
                       : "bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] text-[#ff8833] hover:from-[#ff6600] hover:to-[#ff7a1a] hover:text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
                   }`}
@@ -61,12 +65,7 @@ export default function App() {
       </XPWindow>
 
       {/* Content Window - Right Side */}
-      <XPWindow
-        title={
-          menuItems.find((item) => item.id === activeSection)?.label || "Start"
-        }
-        className="flex-1 lg:flex-4 min-h-[600px]"
-      >
+      <XPWindow title={currentTitle} className="flex-1 lg:flex-4 min-h-[600px]">
         <div className="p-4 lg:p-8">
           <Routes>
             <Route path="/" element={<Index />} />

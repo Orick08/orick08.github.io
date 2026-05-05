@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Index() {
   return (
     <div className="space-y-6">
@@ -14,7 +16,10 @@ export default function Index() {
           projects and portafolio.
         </p>
         <div className="grid grid-cols-2 gap-4 mt-6">
-          <div className="bg-[#0d0d0d] border border-[#333] hover:border-[#ff6600] rounded-sm p-5 transition-all group">
+          <Link
+            className="bg-[#0d0d0d] border border-[#333] hover:border-[#ff6600] rounded-sm p-5 transition-all group"
+            to="/blog"
+          >
             <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-[#ff6600] to-[#ff7a1a] flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,102,0,0.3)]">
               <span className="text-white text-xl">🎨</span>
             </div>
@@ -22,16 +27,19 @@ export default function Index() {
               Blog posts
             </h3>
             <p className="text-gray-500 text-sm">Programming, thoughts, etc.</p>
-          </div>
-          <div className="bg-[#0d0d0d] border border-[#333] hover:border-[#ff6600] rounded-sm p-5 transition-all group">
+          </Link>
+          <Link
+            className="bg-[#0d0d0d] border border-[#333] hover:border-[#ff6600] rounded-sm p-5 transition-all group"
+            to="/portfolio"
+          >
             <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-[#ff6600] to-[#ff7a1a] flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,102,0,0.3)]">
               <span className="text-white text-xl">🎯</span>
             </div>
             <h3 className="text-white font-bold mb-2 group-hover:text-[#ff8833] transition-colors">
-              Porfolio
+              Portfolio
             </h3>
             <p className="text-gray-500 text-sm">Projects and stuff.</p>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

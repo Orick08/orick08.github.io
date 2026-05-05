@@ -1,31 +1,20 @@
 export default function Blog() {
+  const posts = [
+    {
+      title: "Lorem ipsum",
+      date: "15 de Enero, 2026",
+      excerpt: "Lorem ipsum",
+    },
+  ];
+
   return (
     <div className="space-y-6">
       <div className="border-l-4 border-[#ff6600] pl-4 mb-6">
         <h2 className="text-3xl font-bold text-white mb-2">Blog</h2>
-        <p className="text-gray-500">Articles and tutorials.</p>
       </div>
 
       <div className="space-y-4">
-        {[
-          {
-            title: "Open Software 101",
-            date: "15 de Enero, 2026",
-            excerpt:
-              "Un viaje nostálgico por uno de los sistemas operativos más icónicos...",
-          },
-          {
-            title: "Diseño retro en la web moderna",
-            date: "10 de Enero, 2026",
-            excerpt:
-              "Cómo combinar la estética clásica con tecnologías actuales...",
-          },
-          {
-            title: "El poder de React y TypeScript",
-            date: "5 de Enero, 2026",
-            excerpt: "Construyendo aplicaciones web robustas y escalables...",
-          },
-        ].map((post) => (
+        {posts.map((post) => (
           <div
             key={post.title}
             className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#2a2a2a] hover:border-[#ff6600] rounded-sm p-6 transition-all cursor-pointer group shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
